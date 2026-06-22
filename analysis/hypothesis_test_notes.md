@@ -135,3 +135,71 @@ The outcome of this hypothesis test directly supports the business decision:
 **Should the new onboarding and activation campaign be launched to all users?**
 
 If the treatment significantly improves Paid Conversion Rate without negatively affecting guardrail metrics such as Refund Rate, Support Tickets, and User Engagement, the company can confidently proceed with a full rollout.
+
+
+## Test Inputs
+
+| Metric               | Control | Treatment |
+| -------------------- | ------: | --------: |
+| Total Users          |     693 |       715 |
+| Paid Conversions     |      22 |        50 |
+| Paid Conversion Rate |   3.17% |     6.99% |
+
+Additional Test Statistics:
+
+| Statistic                     |    Value |
+| ----------------------------- | -------: |
+| Difference in Conversion Rate |    3.82% |
+| Pooled Conversion Rate        |    5.11% |
+| Standard Error                |  0.01174 |
+| Z Score                       |   3.2519 |
+| One-tailed P-value            | 0.000573 |
+
+---
+
+## Test Result
+
+The calculated p-value is:
+
+**0.000573**
+
+Since:
+
+**0.000573 < 0.05**
+
+the Null Hypothesis is rejected.
+
+---
+
+## Statistical Conclusion
+
+There is statistically significant evidence that the Treatment group achieved a higher Paid Conversion Rate than the Control group.
+
+The observed improvement is unlikely to be caused by random chance.
+
+---
+
+## Business Interpretation
+
+The new onboarding and activation campaign increased the Paid Conversion Rate from:
+
+* Control Group: **3.17%**
+* Treatment Group: **6.99%**
+
+This represents an absolute improvement of:
+
+**3.82 percentage points**
+
+and more than doubles the conversion performance compared to the existing onboarding experience.
+
+Because the result is statistically significant and demonstrates a meaningful business improvement, the Treatment campaign shows strong potential for full deployment.
+
+---
+
+## Recommendation
+
+Based on the A/B test results, the Treatment group significantly outperformed the Control group in terms of Paid Conversion Rate.
+
+Therefore:
+
+**Recommend proceeding with a broader rollout of the new onboarding campaign**, provided that guardrail metrics such as Refund Rate, Support Ticket Rate, and User Engagement remain within acceptable business thresholds.

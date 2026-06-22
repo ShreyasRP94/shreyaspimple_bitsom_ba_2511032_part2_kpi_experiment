@@ -64,6 +64,32 @@ Potential risks include:
 
 For these reasons, Paid Conversion Rate should always be evaluated alongside guardrail metrics such as Refund Request Rate, Support Tickets, and Engagement Score to ensure sustainable business growth.
 
+## Dataset Description
+
+The dataset `campaign_experiment_data.xlsx` contains user-level experiment data for both Control and Treatment groups.
+
+The dataset includes:
+
+	* User ID
+	* Experiment Group
+	* Landing Page Visit Status
+	* Trial Start Status
+	* Onboarding Completion Status
+	* Paid Conversion Status
+	* Revenue in First 30 Days
+	* Support Tickets
+	* Refund Requests
+	* Engagement Score
+	* Days to Convert
+	* Region
+	* Device Type
+	* Traffic Source
+	* Plan Type
+
+The dataset was used for KPI analysis, A/B testing, guardrail evaluation, and business recommendation.
+
+---
+
 
 ## Data Cleaning and Preparation
 
@@ -134,3 +160,225 @@ The distribution of users across:
 was compared between Control and Treatment groups.
 
 The distributions were broadly balanced, indicating that the experiment groups are comparable and suitable for A/B testing and business decision-making.
+
+
+## KPI Tree Summary
+
+The KPI Tree was designed around the North Star Metric: **Paid Conversion Rate**.
+
+### Primary KPI Drivers
+
+1. User Acquisition Quality
+
+   * Landing Page Visit Rate
+   * Traffic Quality
+
+2. User Activation Funnel
+
+   * Trial Start Rate
+   * Onboarding Completion Rate
+
+3. User Engagement & Retention
+
+   * Engagement Score
+   * Revenue in First 30 Days
+
+### Guardrail Metrics
+
+* Refund Rate
+* Support Ticket Rate
+* Days to Convert
+
+The KPI Tree image is available in:
+
+```text
+outputs/kpi_tree.png
+```
+
+---
+
+## Experiment Analysis Approach
+
+The experiment dataset was validated and prepared before analysis.
+
+The following checks were performed:
+
+* Missing Value Analysis
+* Group Count Validation
+* Duplicate User ID Check
+* Binary Variable Validation
+* Revenue Outlier Detection
+* Segment Distribution Analysis
+
+Experiment summaries were created for:
+
+* Overall Performance
+* Region-wise Analysis
+* Device Type Analysis
+* Traffic Source Analysis
+* Plan Type Analysis
+
+The summary workbook is available in:
+
+```text
+outputs/experiment_summary.xlsx
+```
+
+---
+
+## Hypothesis Test Summary
+
+### Primary Metric Tested
+
+Paid Conversion Rate
+
+### Hypotheses
+
+**Null Hypothesis (H0)**
+
+Treatment does not improve Paid Conversion Rate.
+
+```text
+H0: pT ≤ pC
+```
+
+**Alternative Hypothesis (H1)**
+
+Treatment improves Paid Conversion Rate.
+
+```text
+H1: pT > pC
+```
+
+### Test Type
+
+One-tailed Z-Test for Difference in Proportions
+
+### Significance Level
+
+```text
+α = 0.05
+```
+
+### Experiment Results
+
+| Metric               | Control | Treatment |
+| -------------------- | ------: | --------: |
+| Users                |     693 |       715 |
+| Paid Conversions     |      22 |        50 |
+| Paid Conversion Rate |   3.17% |     6.99% |
+
+### Test Statistics
+
+| Statistic  |    Value |
+| ---------- | -------: |
+| Difference |    3.82% |
+| Z Score    |   3.2519 |
+| P-value    | 0.000573 |
+
+Since:
+
+```text
+P-value < 0.05
+```
+
+The Null Hypothesis was rejected.
+
+The Treatment group significantly outperformed the Control group.
+
+---
+
+## Guardrail Metrics Considered
+
+The final decision was not based solely on conversion improvement.
+
+The following guardrail metrics were evaluated:
+
+### Refund Rate
+
+The Treatment group did not show a concerning increase in refunds.
+
+**Risk Level:** Low
+
+### Support Ticket Rate
+
+Support activity remained stable.
+
+**Risk Level:** Low
+
+### Days to Convert
+
+The Treatment group converted users efficiently without additional delays.
+
+**Risk Level:** Low
+
+### Engagement Score
+
+User engagement improved under the Treatment experience.
+
+**Risk Level:** Very Low
+
+Overall, no major business risk was identified.
+
+---
+
+## Segment-Level Insights
+
+Performance was analyzed across:
+
+* Region
+* Device Type
+* Traffic Source
+* Plan Type
+
+The Treatment group demonstrated consistent performance improvements across major segments.
+
+No major segment-level decline was observed.
+
+---
+
+## Final Recommendation
+
+### Decision: Launch
+
+The Treatment group demonstrated:
+
+* Higher Paid Conversion Rate (6.99% vs 3.17%)
+* Statistically significant improvement
+* Stable Refund Rate
+* Stable Support Ticket Rate
+* Higher Engagement
+* Faster conversion efficiency
+
+The evidence supports launching the new onboarding and activation campaign for all users.
+
+---
+
+## Assumptions and Limitations
+
+The following limitations should be considered:
+
+1. The experiment covers a limited observation period.
+2. Long-term retention was not evaluated.
+3. Revenue analysis is limited to the first 30 days.
+4. User behavior may change after full-scale rollout.
+
+Continuous monitoring is recommended after deployment.
+
+---
+
+## Screenshots Included
+
+The repository includes the following screenshots:
+
+* `screenshots/kpi_tree_preview.png`
+* `screenshots/summary_metrics.png`
+* `screenshots/hypothesis_test_output.png`
+
+These screenshots provide visual evidence of the KPI framework, experiment summary, and statistical test results.
+
+---
+
+## Final Conclusion
+
+**The new onboarding and activation campaign should be launched for all users because it delivers a statistically significant improvement in Paid Conversion Rate while maintaining healthy guardrail metrics and sustainable business performance.**
