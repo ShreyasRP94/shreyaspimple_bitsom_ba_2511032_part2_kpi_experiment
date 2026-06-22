@@ -64,3 +64,73 @@ Potential risks include:
 
 For these reasons, Paid Conversion Rate should always be evaluated alongside guardrail metrics such as Refund Request Rate, Support Tickets, and Engagement Score to ensure sustainable business growth.
 
+
+## Data Cleaning and Preparation
+
+The experiment dataset was validated before conducting KPI and A/B test analysis.
+
+### 1. Missing Values
+
+The dataset was checked for missing values across all columns.
+
+* No missing values were found in critical fields such as `user_id`, `experiment_group`, conversion indicators, revenue, support tickets, and refund information.
+* Small numbers of missing values were observed in:
+
+  * `device_type`
+  * `traffic_source`
+  * `engagement_score`
+* `days_to_convert` contains a large number of missing values because this metric is only applicable to users who converted to paid subscriptions. Therefore, these missing values were retained and treated as business-expected missingness rather than data quality issues.
+
+### 2. Group Counts
+
+The experiment groups were reasonably balanced:
+
+* Control Group: 693 users
+* Treatment Group: 715 users
+
+This balance supports a fair comparison between both groups.
+
+### 3. Duplicate User IDs
+
+A duplicate check was performed on `user_id`.
+
+* A small number of duplicate user IDs were identified.
+* These records were documented separately for review and transparency.
+* The duplicates were retained in the raw analysis workbook to preserve dataset integrity as provided.
+
+### 4. Binary Variable Validation
+
+The following binary columns were validated:
+
+* visited_landing_page
+* started_trial
+* completed_onboarding
+* converted_to_paid
+* refund_requested
+
+All values were valid and restricted to 0 or 1.
+
+### 5. Revenue Outlier Detection
+
+Revenue outliers were identified using the Interquartile Range (IQR) method.
+
+* Q1 and Q3 were calculated.
+* Upper and lower bounds were derived using:
+
+  * Lower Bound = Q1 − 1.5 × IQR
+  * Upper Bound = Q3 + 1.5 × IQR
+* Outlier records were documented separately for transparency.
+
+No outliers were removed because they may represent legitimate high-value customers and are relevant to business performance evaluation.
+
+### 6. Segment Distribution
+
+The distribution of users across:
+
+* Region
+* Device Type
+* Traffic Source
+
+was compared between Control and Treatment groups.
+
+The distributions were broadly balanced, indicating that the experiment groups are comparable and suitable for A/B testing and business decision-making.
