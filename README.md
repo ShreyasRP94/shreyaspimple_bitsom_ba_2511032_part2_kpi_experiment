@@ -70,23 +70,35 @@ The dataset `campaign_experiment_data.xlsx` contains user-level experiment data 
 
 The dataset includes:
 
-	* User ID
-	* Experiment Group
-	* Landing Page Visit Status
-	* Trial Start Status
-	* Onboarding Completion Status
-	* Paid Conversion Status
-	* Revenue in First 30 Days
-	* Support Tickets
-	* Refund Requests
-	* Engagement Score
-	* Days to Convert
-	* Region
-	* Device Type
-	* Traffic Source
-	* Plan Type
+User ID
 
-The dataset was used for KPI analysis, A/B testing, guardrail evaluation, and business recommendation.
+Experiment Group
+
+Landing Page Visit Status
+
+Trial Start Status
+
+Onboarding Completion Status
+
+Paid Conversion Status
+
+Revenue in First 30 Days
+
+Support Tickets
+
+Refund Requests
+
+Engagement Score
+
+Days to Convert
+
+Region
+
+Device Type
+
+Traffic Source
+
+Plan Type
 
 ---
 
